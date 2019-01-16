@@ -1,0 +1,14 @@
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\CSSRepository.dll.config
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\CSSRepository.dll
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\CSSRepository.pdb
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\CSSEntity.dll
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\EntityFramework.dll
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\CSSEntity.pdb
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\CSSEntity.dll.config
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\EntityFramework.xml
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\obj\Debug\CSSRepository.csprojResolveAssemblyReference.cache
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\obj\Debug\CSSRepository.csproj.CoreCompileInputs.cache
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\obj\Debug\CSSRepository.dll
+D:\Google Drive\ASP.NET\DotNET Project\courier-service-system\CSSRepository\obj\Debug\CSSRepository.pdb

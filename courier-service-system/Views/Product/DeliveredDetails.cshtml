@@ -1,0 +1,72 @@
+﻿@model CSSEntity.Customer
+
+@{
+    ViewBag.Title = "DeliveredDetails";
+    Layout = "~/Views/Shared/_layout_for_products.cshtml";
+}
+<hr />
+<h4>Customers & Receivers Informations :</h4>
+<hr />
+<h4>Cusomer # @Model.CustomerId</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiverName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiverName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiverPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiverPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiverEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiverEmail)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "DeliveredProduct")
+</p>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CSSEntity.MailModel>
+
+@{
+    if (Session["Position"].ToString() == "Admin")
+    {
+        ViewBag.Title = "Inbox";
+        Layout = "~/Views/Shared/_layout_after_login.cshtml";
+    }
+    else if (Session["Position"].ToString() == "Driver")
+    {
+        ViewBag.Title = "Inbox";
+        Layout = "~/Views/Shared/_layout_for_driver.cshtml";
+    }
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.easing.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.scrollTo.js" type="text/javascript"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script type="text/javascript">
+        function del(code) {
+            alert(code);
+            console.log(code);
+             $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Delete", "SendMailer")',
+                        data:{
+                            id:code
+                        },
+                        success: function (result) {
+                            //do something
+                            window.location = "@Url.Action("Inbox", "SendMailer")";
+                            //alert(result);
+                        },
+                        error: function (xmlhttprequest, textstatus, errorthrown) {
+                            document.getElementById("msg").innerHTML = "Invalid user or password!!!";
+                            console.log("error: " + errorthrown);
+                            //alert(xmlhttprequest);
+                        }
+                    });
+        }
+    </script>
+</head>
+<body>
+    <h2>Inbox</h2>
+
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.From)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    <a href="@Url.Action("Inbox", "Employee")">@Html.DisplayFor(modelItem => item.Body)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    <button id="@item.Id" onclick="del(this.id)" class="btn btn-sm btn-danger glyphicon glyphicon-remove"></button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

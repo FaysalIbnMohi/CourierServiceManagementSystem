@@ -1,0 +1,75 @@
+﻿@model CSSEntity.Product
+
+@{
+    ViewBag.Title = "FinalReceiveProduct";
+    Layout = "~/Views/Shared/_layout_for_products.cshtml";
+}
+
+<h2>Confirm Product Receive</h2>
+
+<div>
+    <h4>Product Code # :@Model.ProductId</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeIdFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeIdFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeIdTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeIdTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductWeight) Unit(s)
+        </dd> 
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OderDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <h4 style="color:forestgreen">@Html.ActionLink("Receive Confirm", "ConfirmReceiveProduct", new { id = Model.ProductId })</h4>
+</p>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CSSEntity.Trip>
+
+@{
+    ViewBag.Title = "Trips";
+    Layout = "~/Views/Shared/_layout_for_driver.cshtml";
+}
+
+<h2>Trips</h2>
+<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TripDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartOfficeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinationOfficeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TripDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartOfficeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DestinationOfficeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleNumber)
+        </td>
+        <td>
+        <a href="@Url.Action("ShowDirection", "Trip", new { id=item.TripId})" , target="_blank">Show Direction On Map</a> |
+        @*<td>
+            @Html.ActionLink("Details", "Details", new { id=item.TripId }) |
+        </td>*@
+        </td>
+    </tr>
+}
+
+</table>

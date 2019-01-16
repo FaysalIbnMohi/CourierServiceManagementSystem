@@ -1,0 +1,37 @@
+﻿@model CSSEntity.Employee
+
+@{
+    Layout = "~/Views/Shared/_layout_for_offices.cshtml";
+}
+
+<h4>Confirmation Message</h4>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            <b>Registration Successful, An email has been sent to the User</b>
+        </dt>
+        <dd></dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditEmployee", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ShowEmployees", new { id = Model.OfficeId })
+</p>

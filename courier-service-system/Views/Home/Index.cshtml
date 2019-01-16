@@ -1,0 +1,654 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Courier Service System</title>
+    <!-- Bootstrap Css -->
+    <link href="~/Content/bootstrap.min.css" type="text/css" rel="Stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css" />
+    <link href="~/Content/default.css" rel="stylesheet" type="text/css" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        .container1 {
+            width: 35%;
+            margin-left: 30%;
+            padding: 3%;
+            margin-top: 5%;
+        }
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @@-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @@keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @@media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    <form id="form1" runat="server">
+        <div id="preloader">
+            <div id="load">
+            </div>
+        </div>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.aspx">
+                        <h1>Courier Service Management</h1>
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#intro">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#service">Service</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        @*<li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Example menu</a></li>
+                                    <li><a href="#">Example menu</a></li>
+                                    <li><a href="#">Example menu</a></li>
+                                </ul>
+                            </li>*@
+                        <li>
+                            <a href="@Url.Action("Login","Home")">Login</a>
+                            @*<a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a>*@
+                            <div id="id01" class="modal">
+                                <form class="modal-content animate" method="post">
+                                    <div class="container1" style="background-color:#f1f1f1">
+                                        <label><b>Username</b></label>
+                                        <input type="text" placeholder="Enter Username" name="username" id="username" required=required />
+
+                                        <label><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" id="password" required=required />
+
+                                        <span class="danger" id="msg"></span>
+                                        <button type="submit" id="btn" onclick="login()">Login</button>
+                                        <input type="checkbox" checked="checked" /> Remember me<br />
+                                        @*<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>*@
+                                        <span class="psw">Forgot <a href="#">password?</a></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- Section: intro -->
+        <section id="intro" class="intro">
+
+            <div class="slogan">
+                <h2>WELCOME TO <span class="text_color">Home</span> </h2>
+                <h4>
+                    Our Courier System is one of the most popular Service for
+                    <br />
+                    delivering your products safely to your given destination.
+                </h4>
+            </div>
+            <div class="page-scroll">
+                <a href="#service" class="btn btn-circle">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
+            </div>
+        </section>
+        <!-- /Section: intro -->
+        <section id="feature">
+            <div class="container">
+                <div class="center wow fadeInDown">
+                    <h2>Offices</h2>
+                    <button id="officeLoad">Offices</button>
+                    <p class="lead">Easy to use, Responsive features, Mobile-first approach <br /> Browser compatibility Bootstrap is compatible with all modern browsers</p>
+                </div>
+
+                <div class="row">
+                    <div class="features">
+                        <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" id="olist">
+                            @*<div class="feature-wrap">
+                                    <button id="officeLoad">Offices</button>
+                                    <i class="fa fa-th-list"></i>
+                                    <h2 id="division"></h2>
+                                    <h3 id="location"></h3>
+                                    <h3 id="number"></h3>
+                                </div>*@
+                        </div><!--/.col-md-4-->
+                        @*<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                                <div class="feature-wrap">
+                                    <i class="fa fa-th"></i>
+                                    <h2>Grid System</h2>
+                                    <h3>grid system allows up to 12 columns across the page</h3>
+                                </div>
+                            </div><!--/.col-md-4-->
+
+                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                                <div class="feature-wrap">
+                                    <i class="fa fa-cloud-download"></i>
+                                    <h2>Easy to customize</h2>
+                                    <h3>Bootstrap Grid system has four classes - xs, sm, md & lg</h3>
+                                </div>
+                            </div><!--/.col-md-4-->
+
+                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                                <div class="feature-wrap">
+                                    <i class="fa fa-comment"></i>
+                                    <h2>Modal & Tooltip</h2>
+                                    <h3>Modal is a dialog box/popup, Tooltip is small pop-up box</h3>
+                                </div>
+                            </div><!--/.col-md-4-->
+
+                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                                <div class="feature-wrap">
+                                    <i class="fa fa-cogs"></i>
+                                    <h2>Grid Settings</h2>
+                                    <h3>xs (<768px), sm=sm (=(>=768px), md (>=992px), lg (>=1200px)</768px),></h3>
+                                </div>
+                            </div><!--/.col-md-4-->
+
+                            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                                <div class="feature-wrap">
+                                    <i class="fa fa-heart"></i>
+                                    <h2>The Carousel Plugin</h2>
+                                    <h3>The Carousel plugin is a Slideshow</h3>
+                                </div>
+                            </div>*@<!--/.col-md-4-->
+                    </div><!--/.services-->
+                </div><!--/.row-->
+            </div><!--/.container-->
+        </section>
+        <!--/#feature-->
+        <!-- Section: about -->
+        <section id="about" class="home-section text-center">
+            <div class="heading-about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="section-heading">
+                                    <h2>About us</h2>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div class="wow bounceInUp" data-wow-delay="0.2s">
+                            <div class="team boxed-grey">
+                                <div class="inner">
+                                    <h5>Evan Sihab</h5>
+                                    <p class="subtitle">.NET Developer</p>
+                                    <div class="avatar"><img src="~/img/team/4.png" alt="" class="img-responsive img-circle" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div class="wow bounceInUp" data-wow-delay="0.5s">
+                            <div class="team boxed-grey">
+                                <div class="inner">
+                                    <h5>Md. Arafatul Islam</h5>
+                                    <p class="subtitle">.NET Developer</p>
+                                    <div class="avatar"><img src="" alt="" class="img-responsive img-circle" /></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div class="wow bounceInUp" data-wow-delay="0.8s">
+                            <div class="team boxed-grey">
+                                <div class="inner">
+                                    <h5>Shohorab Hossain</h5>
+                                    <p class="subtitle">.NET Developer</p>
+                                    <div class="avatar"><img src="" alt="" class="img-responsive img-circle" /></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div class="wow bounceInUp" data-wow-delay="1s">
+                            <div class="team boxed-grey">
+                                <div class="inner">
+                                    <h5>E.A.S</h5>
+                                    <p class="subtitle">UI/UX Expert</p>
+                                    <div class="avatar"><img src="" alt="" class="img-responsive img-circle" /></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Section: about -->
+        <!-- Section: services -->
+        <section id="service" class="home-section text-center bg-gray">
+            <div class="heading-about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow bounceInDown" data-wow-delay="0.4s">
+                                <div class="section-heading">
+                                    <h2>Service</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-3 col-md-3">
+                        <div class="wow fadeInLeft" data-wow-delay="0.2s">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <img src="~/img/icons/service-icon-1.png" alt="" />
+                                </div>
+                                <div class="service-desc">
+                                    @*<h5>Print</h5>
+                                        <p>Printing is a process for reproducing text and images using a master form or template.</p>*@
+                                    <ui id="officeList"></ui>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <img src="~/img/icons/service-icon-2.png" alt="" />
+                                </div>
+                                <div class="service-desc">
+                                    <h5>Web Design</h5>
+                                    <p>Web design encompasses many different skills and disciplines in the production</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <img src="~/img/icons/service-icon-3.png" alt="" />
+                                </div>
+                                <div class="service-desc">
+                                    <h5>Photography</h5>
+                                    <p>Photography is the science, art and practice of creating durable images by recording light.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                        <div class="wow fadeInRight" data-wow-delay="0.2s">
+                            <div class="service-box">
+                                <div class="service-icon">
+                                    <img src="~/img/icons/service-icon-4.png" alt="" />
+                                </div>
+                                <div class="service-desc">
+                                    <h5>Cloud System</h5>
+                                    <p>Cloud computing is a computing term or metaphor that evolved in the late 1900s</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Section: services -->
+        <!-- Section: contact -->
+        <section id="contact" class="home-section text-center">
+            <div class="heading-contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow bounceInDown" data-wow-delay="0.4s">
+                                <div class="section-heading">
+                                    <h2>Get in touch</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="boxed-grey">
+                            <form id="contact-form">
+                                <div class="row">
+                                    <div class="col-md-10">
+
+                                        <div class="form-group">
+                                            <label class="labelnew">Email Address</label>
+                                            <input id="email" class="form-control" placeholder="Enter email" required="required" />
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="labelnew">Subject</label>
+                                            <input id="subject" class="form-control" placeholder="Enter Subject" required="required" />
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="labelnew">Message</label>
+                                            <textarea placeholder="Message" id="body" class="form-control" rows="9" columns="25" required="required"></textarea>
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                                                Send Message
+                                            </button>
+                                            <label id="conFmsg" style="color:firebrick"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="widget-contact">
+                            <h5>Main Office</h5>
+
+                            <address>
+                                <strong>ASP.Net MVC Design, Inc.</strong><br />
+                                Hi-tech, Creative<br />
+                                Nikunjo-2, 11 No Road, 18 No House<br />
+                                <abbr title="Phone">Ph:</abbr> (+880) 15241-77890
+                            </address>
+
+                            <address>
+                                <strong>Email</strong><br />
+                                <a href="mailto:#">email.gmail@example.com</a>
+                            </address>
+                            <address>
+                                <strong>We're on social networks also</strong><br />
+                                <ul class="company-social">
+                                    <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                                    <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </address>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- /Section: contact -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="wow shake" data-wow-delay="0.4s">
+                            <div class="page-scroll marginbot-30">
+                                <a href="#intro" id="totop" class="btn btn-circle">
+                                    <i class="fa fa-angle-double-up animated"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p>Copyright &copy; 2017. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Core JavaScript Files -->
+        <script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
+        <script src="~/Scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="~/Scripts/jquery.easing.min.js" type="text/javascript"></script>
+        <script src="~/Scripts/jquery.scrollTo.js" type="text/javascript"></script>
+        <script src="~/Scripts/wow.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="~/Scripts/custom.js" type="text/javascript"></script>
+        <script src="~/Scripts/myScript.js"></script>
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            $('#btnContactUs').click(function () {
+                //alert("Hello World");
+                var email = $('#email').val();
+                var subject = $('#subject').val();
+                var body = $('#body').val();
+                //alert(email + " " + subject + " " + body);
+                $.ajax({
+                    type: "POST",
+                    url: 'http://localhost:52240/api/values/',
+                    data: {
+                        From: email,
+                        Subject: subject,
+                        Body: body
+                    },
+                    success: function (result) {
+                        //do something
+                        alert(result);
+                        $('#conFmsg').html(result);
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrown) {
+                        document.getElementById("msg").innerHTML = "Invalid user or password!!!";
+                        console.log("error: " + errorthrown);
+                        //alert(xmlhttprequest);
+                    }
+                });
+                console.log();
+            });
+            $('#officeLoad').click(function () {
+                $(this).hide();
+                console.log();
+                //alert("Hello World");
+                $.ajax({
+                    url: 'http://localhost:52240/api/values/',
+                    method: 'GET',
+                    success: function (officeList) {
+                        //$('#msg').html(officeList.length + " departments found");
+                        console.log(officeList);
+                        officeList.forEach(function (office) {
+                            //alert(office.officeId);
+                            //var row = "<div class=\"col-md - 4 col-sm - 6 wow fadeInDown\" data-wow-duration=\"1000ms\" data-wow-delay=\"600ms\">";
+                            var row = "<div class=\"feature-wrap\">";
+                            row += "<i class=\"fa fa-th-list\"></i>";
+                            row += "<h2>" + office.officeId + "</h2>";
+                            row += "<h3>" + office.location + ",\n Number : " + office.officialNumber + "</h3>";
+                            //row += "<h4>" + office.officialNumber + "</h4>";
+                            //$('#division').html("<h2>" + office.officeId + "</h2>");
+                            //$('#location').html("<h3>" + office.location + "</h3>");
+                            //$('#number').html("<h3>" + office.officialNumber + "</h3>");
+                            row += "</div>";
+                            row += "</div>";
+                            //$('#division').html(office.OfficeId);
+                            //var row = $('#location').html(office.location);
+                            // $('#olist').html(row);
+                            $('#olist').append(row);
+                        });
+                    }
+                });
+            });
+                function login() {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    //alert(password + " " + username);
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Login", "Home")',
+                        data: {
+                            username: username,
+                            password: password
+                        },
+                        success: function (result) {
+                            //do something
+                            if (result == "A")
+                                window.location = "@Url.Action("Dashboard", "Employee")";
+                            else if(result == "D")
+                                window.location = "@Url.Action("Dashboard", "Driver")";
+                            else
+                                document.getElementById("msg").innerHTML = "Invalid user or password!!!";
+                        },
+                        error: function (xmlhttprequest, textstatus, errorthrown) {
+                            document.getElementById("msg").innerHTML = "Invalid user or password!!!";
+                            console.log("error: " + errorthrown);
+                            //alert(xmlhttprequest);
+                        }
+                    });
+
+            }
+        </script>
+    </form>
+</body>
+</html>

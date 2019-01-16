@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CSSEntity.Product>
+
+@{
+    ViewBag.Title = "DeliveredProduct";
+    Layout = "~/Views/Shared/_layout_for_products.cshtml";
+}
+
+<h2>Delivered Product</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeIdFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TripId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeIdFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TripId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Customers-Info", "DeliveredDetails", new { id=item.CustomerId }) |
+        </td>
+    </tr>
+}
+
+</table>

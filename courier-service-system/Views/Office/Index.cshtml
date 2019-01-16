@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CSSEntity.Office>
+
+@{
+    Layout = "~/Views/Shared/_layout_for_offices.cshtml";
+}
+
+<h2>@Session["OfficeDivision"]</h2>
+
+<p>
+    @Html.ActionLink("Add New Office", "Create")
+</p><hr />
+<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficialNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficialNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OfficeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OfficeId }) |
+            @Html.ActionLink("Show Employees", "ShowEmployees", new { id = item.OfficeId })
+        </td>
+    </tr>
+}
+
+</table>

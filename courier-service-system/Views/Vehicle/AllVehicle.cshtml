@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CSSEntity.Vehicle>
+
+@{
+    ViewBag.Title = "AllVehicle";
+    Layout = "~/Views/Shared/_layout_for_vehicles.cshtml";
+}
+
+<h2>AllVehicle</h2>
+<hr /><h4>@TempData["message"]</h4><hr />
+<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VehicleNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VehicleNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VehicleNumber })
+        </td>
+        <td>
+            @Html.ActionLink("Show Trip Details", "VehicleTripDetails", new { id = item.VehicleNumber }) |
+        </td>
+    </tr>
+}
+
+</table>

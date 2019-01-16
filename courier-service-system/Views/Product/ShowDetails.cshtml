@@ -1,0 +1,122 @@
+﻿@model CSSEntity.Product
+
+@{
+    ViewBag.Title = "ShowDetails";
+    Layout = "~/Views/Shared/_layout_for_products.cshtml";
+}
+
+<h2>ShowDetails</h2>
+
+<div>
+    <h4>@Model.ProductId</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeIdFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeIdFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeIdTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeIdTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SendingCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SendingCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GivenMoney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GivenMoney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnMoney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnMoney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OderTakenEmployeeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OderTakenEmployeeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Details")
+</p>

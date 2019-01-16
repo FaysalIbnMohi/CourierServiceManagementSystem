@@ -1,0 +1,96 @@
+﻿<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+
+@{ 
+    Layout = null;
+}
+@model CSSEntity.Product
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                        <strong>Courier Service System</strong>
+                        <br>
+                         Head : Banani,Dhaka
+                        <br>
+                        <abbr title="Email">mail:</abbr> auibdebug@gmail.com
+                    </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em>@Model.OderDate</em>
+                    </p>
+                    <p>Order Taken By : @Model.OderTakenEmployeeId</p>
+                    <p>From : @Model.OfficeIdFrom</p>
+                    <p>To : @Model.OfficeIdTo</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h1>Receipt</h1>
+                    <h4>Product Code #: @Model.ProductId</h4>
+                </div>
+                <table class="table table-hover", border="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">Product Type</td>
+                            <td>:</td>
+                            <td class="col-md-1" style="text-align: center"><em>@Model.ProductType</em></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Quantity</td>
+                            <td>:</td>
+                            <td class="col-md-1" style="text-align: center"> @Model.ProductQuantity </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Weight</td>
+                            <td>:</td>
+                            <td class="col-md-1" style="text-align: center"> @Model.ProductWeight Unit</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Shipping Cost</td>
+                            <td>:</td>
+                            <td class="col-md-1 text-center">@Model.SendingCost Taka</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Given Money</td>
+                            <td>:</td>
+                            <td class="col-md-1 text-center">@Model.GivenMoney Taka</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Return Money</td>
+                            <td>:</td>
+                            <td class="col-md-1 text-center">@Model.ReturnMoney Taka</td>
+                        </tr>
+                    </tbody>
+                 </table>
+                <br />
+                <h6>System By Arafat & Evan</h6>
+                <br>
+                <div class="text-center">
+                    <hr style="border-top: dotted 2px;" />
+                    <h2>Official Part</h2>
+                    <h4>Product Code #: @Model.ProductId</h4>
+                    <p>Category : @Model.ProductType</p>
+                    <p>From : @Model.OfficeIdFrom</p>
+                    <p>To : @Model.OfficeIdTo</p>
+                    <p>Vehicle Number : @TempData["VehicleNumber"]</p>
+                    <footer>Courier Service System</footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

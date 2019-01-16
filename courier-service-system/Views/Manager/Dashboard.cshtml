@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_layout_for_manager.cshtml";
+}
+
+<h3>Welcome @Session["uname"]</h3>
+<table>
+    <tr>
+        <td><b>User Since</b></td>
+        <td>:</td>
+        <td>@ViewBag.SinceUser Days</td>
+    </tr>
+    <tr>
+        <td><b>Last Login</b></td>
+        <td>:</td>
+        <td>@Session["logTime"]</td>
+    </tr>
+</table>
+

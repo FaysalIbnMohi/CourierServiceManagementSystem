@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CSSEntity.Vehicle>
+
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/_layout_for_vehicles.cshtml";
+}
+
+<h2>SearchResult</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleRegisteredByEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleRegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TripId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleRegisteredByEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleRegisterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TripId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VehicleNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VehicleNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VehicleNumber })
+        </td>
+    </tr>
+}
+
+</table>

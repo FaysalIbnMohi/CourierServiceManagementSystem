@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_layout_after_login.cshtml";
+}
+
+<fieldset>This is message box</fieldset>
+<br />
+<fieldset>
+    <legend><b>PROFILE PICTURE</b></legend>
+    <form>
+        <img width="128" src="~/service.jpg" />
+        <br />
+        <input type="file">
+        <hr />
+        <input type="submit" value="Update">
+        <a href="@Url.Action("Dashboard", "Employee")">Dashboard</a>
+    </form>
+
+</fieldset>

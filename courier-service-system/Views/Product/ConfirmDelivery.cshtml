@@ -1,0 +1,72 @@
+﻿@model CSSEntity.Product
+
+@{
+    ViewBag.Title = "ConfirmDelivery";
+    Layout = "~/Views/Shared/_layout_for_products.cshtml";
+}
+
+<h2>Confirm Delivery</h2>
+<hr />
+<h4 style="color:red">@TempData["DeliveryStatusMessage"]</h4>
+<div>
+    <h4>Receiver Name : @Session["customerReceiverInfo"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeIdFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeIdFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductWeight) Unit(s)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryStatus)
+        </dd>
+    </dl>
+</div>
+<p>
+    <h4>@Html.ActionLink("Confirm Delivery", "FinalConfirmDelivery", new { id = Model.ProductId })</h4>
+</p>

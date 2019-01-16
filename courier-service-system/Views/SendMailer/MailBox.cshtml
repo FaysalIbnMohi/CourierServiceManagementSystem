@@ -1,0 +1,59 @@
+﻿@model CSSEntity.MailModel
+
+@{
+    if (Session["Position"].ToString() == "Admin")
+    {
+        ViewBag.Title = "MailBox";
+        Layout = "~/Views/Shared/_layout_after_login.cshtml";
+    }
+    else if(Session["Position"].ToString() == "Driver")
+    {
+        ViewBag.Title = "Inbox";
+        Layout = "~/Views/Shared/_layout_for_driver.cshtml";
+    }
+}
+<head>
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+    @*<link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/jquery-1.5.2.js"></script>*@
+    @*<script src="~/Scripts/bootstrap.js"></script>*@
+</head>
+
+<fieldset>@ViewBag.Status</fieldset>
+<a href="@Url.Action("Inbox", "SendMailer")"><h2>Inbox</h2></a>
+<fieldset>
+    <legend><b>LEAVE A MESSAGE!!!</b></legend>
+    <form method="post">
+        <table>
+            <tr><td></td></tr>
+            <tr>
+                <td width="20%"></td>
+                <td width="30%">To : </td>
+                <td width="30%"><input type="text" name="to" required value="@ViewBag.To"></td>
+                <td width="20%"></td>
+            </tr>
+            <tr><td></td><td colspan="2"><hr /></td></tr>
+            <tr>
+                <td></td>
+                <td>Subject : </td>
+                <td><input type="text" name="subject" required value="@ViewBag.Subject"></td>
+            </tr>
+            <tr><td></td><td colspan="2"><hr /></td></tr>
+            <tr>
+                <td></td>
+                <td>Message : </td>
+                <td>
+                    <textarea name="body"> @ViewBag.Body</textarea>
+                </td>
+            </tr>
+            <tr><td></td><td colspan="2"><hr /></td></tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn btn-success btn-send" value="Send message">
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>

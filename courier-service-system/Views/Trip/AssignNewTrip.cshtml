@@ -1,0 +1,73 @@
+﻿@model CSSEntity.Trip
+
+@{
+    Layout = "~/Views/Shared/_layout_for_trips.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/Scripts/myScript.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+</head>
+
+<h2>Assign New Trip</h2><br />
+<hr />
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>Select A Trip Date :</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TripDate, htmlAttributes: new { @class = "control-label col-md-2" })<br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TripDate, new { htmlAttributes = new { @class = "form-control",@id="Tdatepicker",@Required="required", @name = "tripDate" } })
+                @Html.ValidationMessageFor(model => model.TripDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.StartOfficeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.StartOfficeId, (IEnumerable<SelectListItem>)ViewBag.OfficeList)
+                @Html.ValidationMessageFor(model => model.StartOfficeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DestinationOfficeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DestinationOfficeId, (IEnumerable<SelectListItem>)ViewBag.OfficeList)
+                @Html.ValidationMessageFor(model => model.DestinationOfficeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EmployeeId, (IEnumerable<SelectListItem>)ViewBag.EmployeeList)
+                @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VehicleNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.VehicleNumber, (IEnumerable<SelectListItem>)ViewBag.VehicleList)
+                @Html.ValidationMessageFor(model => model.VehicleNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="NEXT" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

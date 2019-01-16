@@ -1,0 +1,40 @@
+﻿
+<head>
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>*@
+</head>
+<table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
+    <tr>
+        <td valign="middle" height="70">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Index", "Home")" style="text-decoration:none" target="contentFrame">
+                            <h1>Courier Service System</h1>
+                        </a>
+                    </td>
+                    <td align="right">
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                        <a href="@Url.Action("Login", "Employee")">Login</a>
+                        @*<a href="@Url.Action("Registration", "Home")">Registration</a>*@
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <br />
+            @RenderBody()
+            <!-- CONTENTS GOES HERE -->
+
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            Copyright &copy; 2017
+        </td>
+    </tr>
+</table>

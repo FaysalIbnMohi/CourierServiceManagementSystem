@@ -1,0 +1,80 @@
+﻿<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<table width="100%" cellspacing="0" cellpadding="10" border="1">
+    <tr>
+        <td colspan="2" valign="middle" height="70">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Courier Service System</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="@Url.Action("Dashboard", "Employee")"> DashBoard </a>&nbsp;</li>
+                        @*<li><a href="@Url.Action("Employees", "Employee", new { id = "All"})">Employees</a>&nbsp;</li>*@
+                        <li><a href="@Url.Action("Products", "Product")"> Products </a>&nbsp;</li>
+                        @*<li><a href="@Url.Action("Index", "Office")"> Offices </a>&nbsp;</li>*@
+                        @*<li><a href="@Url.Action("AllVehicle", "Vehicle")"> Vehicles </a>&nbsp;</li>*@
+                        @*<li><a href="@Url.Action("Trips", "Trip")"> Trips </a>&nbsp;</li>*@
+                        @*<li><a href="@Url.Action("MailBox", "SendMailer")"> Mail </a>&nbsp;</li>*@
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Inbox", "Employee")"><span class="glyphicon glyphicon-envelope"></span><span class="badge badge-notify" class="danger">@Session["Count"]</span>Mail</a></li>
+                        <li><a href="@Url.Action("ViewProfile", "Employee", new { id = Session["Id"]})"><span class="glyphicon glyphicon-user"></span>&nbsp;@Session["uname"]</a></li>
+                        <li><a href="@Url.Action("Logout", "Home")"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </td>
+    </tr>
+    <tr>
+        <td width="200" valign="top">
+            <b>&nbsp;My Account</b><hr />
+            <ul>
+                <li><a href="@Url.Action("Dashboard", "Manager")">Dashboard</a></li>
+                <li><a href="@Url.Action("ViewProfile", "Manager", new { id = Session["Id"]})">View Profile</a></li>
+                <li><a href="@Url.Action("EditProfile", "Manager", new { id = Session["Id"]})">Edit Profile</a></li>
+                @*<li><a href="@Url.Action("picture", "Manager")">Change Profile Picture</a></li>*@
+                <li><a href="@Url.Action("ChangePassword", "Manager")">Change Password</a></li>
+                <li><a href="@Url.Action("Logout", "Home")">Logout</a></li>
+            </ul>
+
+            <!-- ADVANCED FEATURES-->
+
+            <hr /><b>&nbsp;User</b><hr />
+            <ul>
+                <li><a href="@Url.Action("Trips", "Manager")">Trips</a></li>
+                <li><a href="@Url.Action("MailBox", "SendMailer")">Mail</a></li>
+                @*<li><a href="@Url.Action("Registration", "Employee")">Add New</a></li>*@
+            </ul>
+            @*<ul>
+                    <li>
+                        User Reports
+                        <ul>
+                            <li><a href="report/user/statistics_report.html">Statistics Report</a></li>
+                            <li><a href="report/user/activity_report.html">Activity Report</a></li>
+                        </ul>
+                    </li>
+                </ul>*@
+
+
+            <!--ADVANCED FEATURES END HERE
+            -->
+
+        </td>
+        <td valign="top">
+
+            @RenderBody()
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            Copyright &copy; 2017
+        </td>
+    </tr>
+</table>

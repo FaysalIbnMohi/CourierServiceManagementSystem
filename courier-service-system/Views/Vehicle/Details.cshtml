@@ -1,0 +1,41 @@
+﻿@model CSSEntity.Vehicle
+
+@{ 
+    Layout = "~/Views/Shared/_layout_for_vehicles.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicle : @Model.VehicleNumber</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleRegisteredByEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleRegisteredByEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleRegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleRegisterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentLocation)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleNumber }) |
+    @Html.ActionLink("Back to List", "AllVehicle")
+</p>

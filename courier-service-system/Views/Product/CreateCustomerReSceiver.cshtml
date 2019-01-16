@@ -1,0 +1,111 @@
+﻿@model CSSEntity.Customer
+
+@{
+    ViewBag.Title = "CreateCustomerReSceiver";
+    Layout = "~/Views/Shared/_layout_for_products.cshtml";
+
+}
+<head>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/select_jquery.js"></script>
+</head>
+<h2>Take Oder</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Customers Informations</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" , @Required = "required" } })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerPhoneNumber, new { htmlAttributes = new { @class = "form-control" ,@Value = TempData["CustomerPhoneNumber"] ,@Required = "required" } })
+                @Html.ValidationMessageFor(model => model.CustomerPhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { @class = "form-control" ,@Required = "required" } })
+                @Html.ValidationMessageFor(model => model.CustomerEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control", @Required = "required" } })
+                @Html.ValidationMessageFor(model => model.CustomerAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReceiverName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReceiverName, new { htmlAttributes = new { @class = "form-control" , @Required = "required" } })
+                @Html.ValidationMessageFor(model => model.ReceiverName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReceiverPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReceiverPhoneNumber, new { htmlAttributes = new { @class = "form-control", @Required = "required" } })
+                @Html.ValidationMessageFor(model => model.ReceiverPhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReceiverEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReceiverEmail, new { htmlAttributes = new { @class = "form-control" , @Required = "required" } })
+                @Html.ValidationMessageFor(model => model.ReceiverEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       <div class="form-group">
+        <label class="control-label col-md-2">Receivers Devision</label>
+        <div class="col-md-10">
+            <div id="prm">
+
+                <select id="country" name="country">
+                    <option>--Select--</option>
+                    <option>BARISHAL</option>
+                    <option>CHITTAGONG</option>
+                    <option>DHAKA</option>
+                    <option>KHULNA</option>
+                    <option>MYMENSINGH</option>
+                    <option>RAJSHAHI</option>
+                    <option>RANGPUR</option>
+                    <option>SYLHET</option>
+                </select><br /><br />
+                <div>
+                    <label>Select Receiving Office : </label>
+
+                    <select id="city" name="city">
+                        <!--Dependent Select option field-->
+                    </select>
+                </div>
+            </div>
+        </div>
+       </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Next" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

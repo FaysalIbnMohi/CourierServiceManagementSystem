@@ -1,0 +1,107 @@
+﻿@model CSSEntity.Employee
+
+@{
+    ViewBag.Title = "EmployeeDetails";
+    Layout = "~/Views/Shared/_layout_for_offices.cshtml";
+}
+
+<h2>EmployeeDetails</h2>
+
+<div>
+    <h4>@Model.Id</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NationalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditEmployee", new { id = Model.Id }) |
+    @Html.ActionLink("Back To List", "ShowEmployees", new { id = Model.OfficeId })
+</p>
